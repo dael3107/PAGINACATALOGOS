@@ -1,0 +1,341 @@
+:root {
+    --bg-dark: #050505;
+    --bg-panel: #0a0a0a;
+    --primary: #0051ff;
+    --primary-glow: rgba(0, 81, 255, 0.5);
+    --accent: #00f2ff;
+    --text-main: #ffffff;
+    --text-muted: #ccccff;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --sidebar-width: 280px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    color: var(--text-main);
+    overflow: hidden;
+    height: 100vh;
+    font-size: 1rem;
+    
+    /* --- FONDO ATMOSFÉRICO (El que te gustó) --- */
+    /* Base oscura con brillos azules profundos, no negro plano, no cyan chillón */
+    background-color: #0b0f19;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 81, 255, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.15) 0%, transparent 40%);
+}
+
+/* --- CLASES PREMIUM GLOBALES --- */
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.btn-premium {
+    padding: 1rem 2rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px; /* Espaciado corregido (menos separado) */
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    cursor: pointer;
+}
+
+.btn-premium-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 81, 255, 0.4);
+}
+
+.btn-premium-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px rgba(0, 81, 255, 0.6);
+}
+
+.btn-premium-secondary {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.1);
+}
+
+.btn-premium-secondary:hover {
+    background: var(--accent);
+    color: #000;
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.5);
+    transform: translateY(-5px);
+}
+
+/* --- DISEÑO DE PAGINA Y SIDEBAR --- */
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    background: rgba(0, 0, 0, 0.4); /* Transparente para ver el azul de fondo */
+    border-right: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    backdrop-filter: blur(15px);
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.brand-logo {
+    max-width: 90%;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+}
+
+.menu-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.catalog-list {
+    list-style: none;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.catalog-btn {
+    width: 100%;
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 1rem;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: var(--transition);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.catalog-btn:hover {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    transform: translateX(5px);
+}
+
+.catalog-btn.active {
+    background: linear-gradient(90deg, rgba(0, 81, 255, 0.2) 0%, transparent 100%);
+    border-left: 3px solid var(--primary);
+    color: white;
+    font-weight: 600;
+}
+
+.catalog-btn.active i {
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* --- ENCABEZADOS DE VIDRIO (Transparentes sobre fondo azul) --- */
+
+.top-bar {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    
+    /* GLASS EFFECT */
+    background: transparent; /* Transparente total */
+    /* Sutil gradiente inferior para separar */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), transparent);
+    
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Linea Neón Superior Sutil */
+.top-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    box-shadow: 0 0 15px var(--accent);
+}
+
+.top-bar h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px; /* TIPOGRAFIA CORREGIDA */
+    font-weight: 700;
+    padding-left: 1rem;
+    border-left: 3px solid var(--accent);
+    color: white;
+    text-shadow: 0 0 20px rgba(0, 81, 255, 0.5);
+}
+
+.action-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.action-btn:hover {
+    background: white;
+    color: var(--primary);
+    box-shadow: 0 0 20px rgba(255,255,255,0.4);
+}
+
+/* HEADER para Liquidación */
+.page-header-futuristic {
+    padding: 4rem 2rem 2rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    
+    /* GLASS EFFECT */
+    background: transparent;
+    
+    width: 100%;
+    position: relative;
+}
+
+.page-header-futuristic h1 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800; /* BOLD */
+    font-size: 3rem; /* GRANDE */
+    letter-spacing: 2px; /* CORREGIDO (No 6px) */
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px var(--accent);
+    margin: 0;
+}
+
+.viewer-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* Transparente para ver el body */
+    background: transparent; 
+    position: relative;
+    overflow: hidden;
+}
+
+.pdf-container {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 80px);
+    /* Fondo oscuro para contraste del PDF */
+    background: rgba(0,0,0,0.3);
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* LOADER */
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.loader.active { opacity: 1; }
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid transparent;
+    border-top: 3px solid var(--primary);
+    border-right: 3px solid var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+.loader p {
+    font-family: 'Outfit', sans-serif;
+    color: white;
+    letter-spacing: 2px;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .app-container { flex-direction: column; }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+        white-space: nowrap;
+        background: rgba(0,0,0,0.8);
+    }
+    .brand { margin: 0 1rem 0 0; padding: 0; border: none; }
+    .brand-logo { max-height: 40px; }
+    .viewer-area { height: calc(100vh - 70px); }
+    .catalog-list { display: flex; gap: 1rem; }
+}

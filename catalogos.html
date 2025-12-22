@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDIPLAST S.A.C. | Catálogos 2026</title>
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Navegación Lateral (Sidebar) -->
+        <nav class="sidebar">
+            <div class="brand">
+                <img src="img/logos/logo.png" alt="REDIPLAST S.A.C. Logo" class="brand-logo">
+            </div>
+
+            <!-- Botón Volver al Inicio (Estilo Premium Secundario) -->
+            <a href="index.html" class="btn-premium btn-premium-secondary"
+                style="width: 100%; border-radius: 12px; padding: 0.8rem 1rem; margin-bottom: 2rem; font-size: 0.8rem; justify-content: flex-start;">
+                <i class="fa-solid fa-house"></i>
+                VOLVER AL INICIO
+            </a>
+
+            <div class="menu-label">CATÁLOGOS DISPONIBLES</div>
+
+            <!-- 
+                 Lista de Catálogos.
+            -->
+            <ul class="catalog-list">
+                <li>
+                    <button class="catalog-btn active" data-src="CATALOGO BOLSAS RDP 2026.pdf">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span>Bolsas</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="catalog-btn" data-src="CATALOGO DESCARTABLES RDP 2026.pdf">
+                        <i class="fa-solid fa-utensils"></i>
+                        <span>Descartables</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="catalog-btn" data-src="CATALOGO LIMPIEZA RDP 2026.pdf">
+                        <i class="fa-solid fa-pump-soap"></i>
+                        <span>Limpieza</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="catalog-btn" data-src="CATALOGO PLASTICOS DUROS RDP 2026.pdf">
+                        <i class="fa-solid fa-box-open"></i>
+                        <span>Plásticos Duros</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="catalog-btn" data-src="CATALOGO ZIPLOC REDIPLAS.pdf">
+                        <i class="fa-regular fa-folder-closed"></i>
+                        <span>Ziploc</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="catalog-btn" data-src="CATALOGO BOLSAS PARA DESECHO.pdf">
+                        <i class="fa-solid fa-trash-can"></i>
+                        <span>Bolsas Desecho</span>
+                    </button>
+                </li>
+            </ul>
+
+            <div class="footer-info">
+                <p>&copy; 2026 REDIPLAST S.A.C.</p>
+                <p class="status"><span class="dot"></span> Sistema Online Rediplast</p>
+            </div>
+        </nav>
+
+        <!-- Área Principal del Visor -->
+        <main class="viewer-area">
+            <header class="top-bar">
+                <h2 id="current-title">VISOR DE CATÁLOGOS</h2>
+                <div class="actions">
+                    <a href="#" id="download-btn" class="btn-premium btn-premium-primary"
+                        style="padding: 0.5rem 1.5rem; font-size: 0.8rem;" download>
+                        <i class="fa-solid fa-download"></i> Descargar
+                    </a>
+                </div>
+            </header>
+
+            <!-- Contenedor del PDF -->
+            <div class="pdf-container">
+                <!-- Cargador Animado (Loader) -->
+                <div class="loader" id="loader">
+                    <div class="spinner"></div>
+                    <p>Cargando Catálogo 2026...</p>
+                </div>
+                <!-- Iframe donde se visualiza el PDF -->
+                <iframe id="pdf-viewer" src="" type="application/pdf"></iframe>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

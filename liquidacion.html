@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDIPLAST S.A.C. | Liquidación</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            overflow-y: auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding: 2rem 2rem 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(0, 242, 255, 0.2);
+        }
+
+        .product-card::before {
+            content: "OFERTA";
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 0 10px var(--primary-glow);
+            z-index: 2;
+        }
+
+        .card-img-container {
+            width: 100%;
+            height: 280px;
+            background: white;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 15px;
+        }
+
+        .card-img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover .card-img-container img {
+            transform: scale(1.08);
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: white;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" class="btn-premium btn-premium-secondary"
+        style="position: absolute; top: 2rem; left: 2rem; padding: 0.5rem 1.5rem; font-size: 0.8rem; z-index: 100;">
+        <i class="fa-solid fa-house"></i> Inicio
+    </a>
+
+    <!-- AQUI ESTA EL CAMBIO IMPORTANTE: Clase page-header-futuristic -->
+    <div class="page-header-futuristic">
+        <h1 style="margin-top: 3rem;">Liquidación Exclusiva</h1>
+    </div>
+
+    <div class="products-grid">
+        <!-- ============================================== -->
+        <!-- PRODUCTO 1 (Original)                         -->
+        <!-- ============================================== -->
+        <article class="glass-panel product-card">
+            <div class="card-img-container">
+                <!-- EDITAR IMAGEN AQUI: Cambia "Helado 5 lt.png" por tu archivo -->
+                <img src="img/productos/Helado 5 lt.png" alt="Envase de Helado 5LT">
+            </div>
+            <!-- EDITAR NOMBRE AQUI -->
+            <h3 class="product-name">Envase de Helado con Tapa 5LT</h3>
+
+            <!-- EDITAR PRECIO AQUI -->
+            <div class="product-price">
+                S/ 350.00
+            </div>
+
+            <a href="https://wa.me/51998353898?text=Hola,%20me%20interesa%20el%20Envase%20de%20Helado%205LT"
+                target="_blank" class="btn-premium btn-premium-primary" style="width: 100%;">
+                <i class="fa-brands fa-whatsapp"></i> Comprar
+            </a>
+        </article>
+
+        <!-- ============================================== -->
+        <!-- PRODUCTO 2 (Placeholder para editar)          -->
+        <!-- ============================================== -->
+        <article class="glass-panel product-card">
+            <div class="card-img-container">
+                <!-- 📷 EDITAR IMAGEN: Sube tu foto y pon el nombre aqui (ej: "foto2.png") -->
+                <img src="img/productos/Helado 5 lt.png" alt="BOLSA ZIPLOC">
+            </div>
+
+            <!-- 📝 EDITAR NOMBRE: Escribe el nombre del producto aqui abajo -->
+            <h3 class="product-name">BOLSA ZIPLOC</h3>
+
+            <!-- 💲 EDITAR PRECIO: Escribe el precio aqui abajo -->
+            <div class="product-price">
+                S/ 45.00
+            </div>
+
+            <a href="https://wa.me/51998353898?text=Hola,%20me%20interesa%20el%20Producto%202" target="_blank"
+                class="btn-premium btn-premium-primary" style="width: 100%;">
+                <i class="fa-brands fa-whatsapp"></i> Comprar
+            </a>
+        </article>
+
+        <!-- ============================================== -->
+        <!-- PRODUCTO 3 (Placeholder para editar)          -->
+        <!-- ============================================== -->
+        <article class="glass-panel product-card">
+            <div class="card-img-container">
+                <!-- 📷 EDITAR IMAGEN: Sube tu foto y pon el nombre aqui -->
+                <img src="img/productos/Helado 5 lt.png" alt="DETERGENTE">
+            </div>
+
+            <!-- 📝 EDITAR NOMBRE: Escribe el nombre del producto aqui abajo -->
+            <h3 class="product-name">DETERGENTE</h3>
+
+            <!-- 💲 EDITAR PRECIO: Escribe el precio aqui abajo -->
+            <div class="product-price">
+                S/ 65.00
+            </div>
+
+            <a href="https://wa.me/51998353898?text=Hola,%20me%20interesa%20el%20Producto%203" target="_blank"
+                class="btn-premium btn-premium-primary" style="width: 100%;">
+                <i class="fa-brands fa-whatsapp"></i> Comprar
+            </a>
+        </article>
+    </div>
+</body>
+
+</html>
