@@ -482,7 +482,8 @@ iframe {
     /* Force height for internal content if needed */
     .pdf-container iframe {
         min-height: 100%;
-        height: 100%;
+        height: auto;
+        /* Permite que el iframe crezca en iOS - FIX APLICADO */
         /* On iOS, iframes can expand. This ensures container scrolls. */
     }
 }
