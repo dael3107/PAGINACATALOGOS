@@ -28,8 +28,7 @@ body {
     height: 100vh;
     font-size: 1rem;
 
-    /* --- FONDO ATMOSFÉRICO (El que te gustó) --- */
-    /* Base oscura con brillos azules profundos, no negro plano, no cyan chillón */
+    /* --- FONDO ATMOSFÉRICO --- */
     background-color: #0b0f19;
     background-image:
         radial-gradient(circle at 10% 20%, rgba(0, 81, 255, 0.4) 0%, transparent 40%),
@@ -53,7 +52,6 @@ body {
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 1px;
-    /* Espaciado corregido (menos separado) */
     text-transform: uppercase;
     text-decoration: none;
     border-radius: 50px;
@@ -119,7 +117,6 @@ body {
 .sidebar {
     width: var(--sidebar-width);
     background: rgba(0, 0, 0, 0.4);
-    /* Transparente para ver el azul de fondo */
     border-right: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     flex-direction: column;
@@ -193,7 +190,7 @@ body {
     text-shadow: 0 0 10px var(--primary-glow);
 }
 
-/* --- ENCABEZADOS DE VIDRIO (Transparentes sobre fondo azul) --- */
+/* --- ENCABEZADOS DE VIDRIO --- */
 
 .top-bar {
     height: 80px;
@@ -201,19 +198,13 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
-
-    /* GLASS EFFECT */
     background: transparent;
-    /* Transparente total */
-    /* Sutil gradiente inferior para separar */
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent);
-
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     position: relative;
     overflow: hidden;
 }
 
-/* Linea Neón Superior Sutil */
 .top-bar::before {
     content: '';
     position: absolute;
@@ -229,7 +220,6 @@ body {
     font-family: 'Outfit', sans-serif;
     font-size: 1.8rem;
     letter-spacing: 2px;
-    /* TIPOGRAFIA CORREGIDA */
     font-weight: 700;
     padding-left: 1rem;
     border-left: 3px solid var(--accent);
@@ -265,10 +255,7 @@ body {
     padding: 4rem 2rem 2rem 2rem;
     text-align: center;
     margin-bottom: 2rem;
-
-    /* GLASS EFFECT */
     background: transparent;
-
     width: 100%;
     position: relative;
 }
@@ -276,11 +263,8 @@ body {
 .page-header-futuristic h1 {
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
-    /* BOLD */
     font-size: 3rem;
-    /* GRANDE */
     letter-spacing: 2px;
-    /* CORREGIDO (No 6px) */
     color: white;
     text-transform: uppercase;
     text-shadow: 0 0 20px var(--accent);
@@ -291,7 +275,6 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    /* Transparente para ver el body */
     background: transparent;
     position: relative;
     overflow: hidden;
@@ -302,7 +285,6 @@ body {
     position: relative;
     width: 100%;
     height: calc(100vh - 80px);
-    /* Fondo oscuro para contraste del PDF */
     background: rgba(0, 0, 0, 0.3);
 }
 
@@ -354,7 +336,6 @@ iframe {
     }
 }
 
-/* Responsive */
 /* Responsive Design Improvements by Antigravity */
 @media (max-width: 768px) {
     .app-container {
@@ -372,7 +353,6 @@ iframe {
         align-items: center;
         padding: 0.5rem 1rem;
         background: rgba(11, 15, 25, 0.95);
-        /* Match main bg opacity */
         border-right: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         z-index: 100;
@@ -393,7 +373,6 @@ iframe {
         margin-bottom: 0;
         padding: 0;
         border-radius: 12px;
-        /* Soft square */
         justify-content: center;
         flex-shrink: 0;
         margin-right: 1rem;
@@ -418,16 +397,12 @@ iframe {
         align-items: center;
         flex: 1;
         width: 100%;
-        /* Hide Scrollbar */
         scrollbar-width: none;
-        /* Firefox */
         -ms-overflow-style: none;
-        /* IE/Edge */
     }
 
     .catalog-list::-webkit-scrollbar {
         display: none;
-        /* Chrome/Safari */
     }
 
     .catalog-list li {
@@ -493,10 +468,21 @@ iframe {
         align-items: center;
     }
 
-    /* Fullscreen PDF Container */
+    /* Fullscreen PDF Container with SCROLLING */
     .pdf-container {
         height: calc(100% - 60px);
         /* Viewer Area Height - Top Bar Height */
         background: #1a1a1a;
+        overflow-y: auto;
+        /* IMPORTANT: Enables scrolling */
+        -webkit-overflow-scrolling: touch;
+        /* IMPORTANT: iOS Smooth scrolling */
+    }
+
+    /* Force height for internal content if needed */
+    .pdf-container iframe {
+        min-height: 100%;
+        height: 100%;
+        /* On iOS, iframes can expand. This ensures container scrolls. */
     }
 }

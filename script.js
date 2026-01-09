@@ -1,58 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Referencias a elementos del DOM
     const buttons = document.querySelectorAll('.catalog-btn');
-    const pdfViewer = document.getElementById('pdf-viewer');
-    const currentTitle = document.getElementById('current-title');
+    const viewer = document.getElementById('pdf-viewer');
+    const title = document.getElementById('current-title');
     const downloadBtn = document.getElementById('download-btn');
     const loader = document.getElementById('loader');
 
     // Función para cargar un catálogo
     function loadCatalog(button) {
-        // Eliminar la clase 'active' de todos los botones
+        // Remover clase active de todos
         buttons.forEach(btn => btn.classList.remove('active'));
 
-        // Agregar la clase 'active' al botón que se hizo clic
+        // Activar el botón presionado
         button.classList.add('active');
 
-        // 1. Obtener el nombre del archivo y agregar la carpeta 'pdf/'
-        const src = 'pdf/' + button.getAttribute('data-src');
-        // 2. Obtener el título del botón (el texto dentro de <span>)
-        const title = button.querySelector('span').innerText;
+        // Obtener datos
+        const pdfSrc = button.getAttribute('data-src');
+        const catalogName = button.querySelector('span').textContent;
 
-        // Actualizar la interfaz de usuario (UI)
-        currentTitle.innerText = title.toUpperCase(); // Actualizar título superior
-        downloadBtn.href = src; // Actualizar enlace del botón de descarga
-
-        // Mostrar la animación de carga (loader)
+        // Mostrar loader
         loader.classList.add('active');
 
-        // Cargar el PDF en el iframe
-        // --- TRUCO ---
-        // Agregamos '#toolbar=0&navpanes=0&scrollbar=0' al final de la URL
-        // Esto le dice al navegador que INTENTE ocultar las barras grises.
+        // Actualizar UI
+        title.textContent = `VISOR: ${catalogName.toUpperCase()}`;
+
+        // URL correcta para el PDF (asumiendo carpeta pdf/)
+        const fullPath = `pdf/${pdfSrc}`;
+
+        // Actualizar descarga y visor
+        downloadBtn.href = fullPath;
+
+        // Pequeño timeout para simular carga y dar tiempo a la UI
         setTimeout(() => {
-            pdfViewer.src = src + "#toolbar=0&navpanes=0&scrollbar=0";
+            viewer.src = fullPath;
+
+            // Ocultar loader cuando el iframe cargue
+            viewer.onload = () => {
+                loader.classList.remove('active');
+            };
+
+            // Fallback para ocultar el loader por si el evento load no se dispara
+            setTimeout(() => {
+                loader.classList.remove('active');
+            }, 2000);
         }, 300);
     }
 
-    // Manejar clics en los botones del catálogo
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            loadCatalog(button);
-        });
+    // Event Listeners para cada botón
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => loadCatalog(btn));
     });
 
-    // Evento que detecta cuando el iframe ha terminado de cargar el PDF
-    pdfViewer.addEventListener('load', () => {
-        // Solo ocultar el cargador si 'src' no está vacío
-        // Nota: Con archivos locales, a veces este evento no dispara bien por seguridad,
-        // pero el usuario verá el PDF cargado de todas formas.
-        setTimeout(() => {
-            loader.classList.remove('active'); // Ocultar animación de carga
-        }, 800);
-    });
-
-    // Carga Inicial (Cargar el primer catálogo automáticamente al abrir la página)
+    // Cargar el primer catálogo por defecto si existe
     if (buttons.length > 0) {
         loadCatalog(buttons[0]);
     }
