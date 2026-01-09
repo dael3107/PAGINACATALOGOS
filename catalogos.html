@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REDIPLAST S.A.C. | CatÃ¡logos 2026</title>
+    <title>REDIPLAST S.A.C. | Catálogos 2026</title>
     <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,23 +16,22 @@
 
 <body>
     <div class="app-container">
-        <!-- NavegaciÃ³n Lateral (Sidebar) -->
+        <!-- Navegación Lateral (Sidebar) -->
         <nav class="sidebar">
             <div class="brand">
                 <img src="img/logos/logo.png" alt="REDIPLAST S.A.C. Logo" class="brand-logo">
             </div>
 
-            <!-- BotÃ³n Volver al Inicio (Estilo Premium Secundario) -->
-            <a href="index.html" class="btn-premium btn-premium-secondary"
-                style="width: 100%; border-radius: 12px; padding: 0.8rem 1rem; margin-bottom: 2rem; font-size: 0.8rem; justify-content: flex-start;">
+            <!-- Botón Volver al Inicio (Estilo Premium Secundario) -->
+            <a href="index.html" class="btn-premium btn-premium-secondary btn-nav-home">
                 <i class="fa-solid fa-house"></i>
-                VOLVER AL INICIO
+                <span class="btn-text">VOLVER AL INICIO</span>
             </a>
 
-            <div class="menu-label">CATÃLOGOS DISPONIBLES</div>
+            <div class="menu-label">CATÁLOGOS DISPONIBLES</div>
 
             <!-- 
-                 Lista de CatÃ¡logos.
+                 Lista de Catálogos.
             -->
             <ul class="catalog-list">
                 <li>
@@ -56,7 +55,7 @@
                 <li>
                     <button class="catalog-btn" data-src="CATALOGO PLASTICOS DUROS RDP 2026.pdf">
                         <i class="fa-solid fa-box-open"></i>
-                        <span>PlÃ¡sticos Duros</span>
+                        <span>Plásticos Duros</span>
                     </button>
                 </li>
                 <li>
@@ -79,14 +78,13 @@
             </div>
         </nav>
 
-        <!-- Ãrea Principal del Visor -->
+        <!-- Área Principal del Visor -->
         <main class="viewer-area">
             <header class="top-bar">
-                <h2 id="current-title">VISOR DE CATÃLOGOS</h2>
+                <h2 id="current-title">VISOR DE CATÁLOGOS</h2>
                 <div class="actions">
-                    <a href="#" id="download-btn" class="btn-premium btn-premium-primary"
-                        style="padding: 0.5rem 1.5rem; font-size: 0.8rem;" download>
-                        <i class="fa-solid fa-download"></i> Descargar
+                    <a href="#" id="download-btn" class="btn-premium btn-premium-primary btn-download" download>
+                        <i class="fa-solid fa-download"></i> <span class="btn-text">Descargar</span>
                     </a>
                 </div>
             </header>
@@ -96,7 +94,7 @@
                 <!-- Cargador Animado (Loader) -->
                 <div class="loader" id="loader">
                     <div class="spinner"></div>
-                    <p>Cargando CatÃ¡logo 2026...</p>
+                    <p>Cargando Catálogo 2026...</p>
                 </div>
                 <!-- Iframe donde se visualiza el PDF -->
                 <iframe id="pdf-viewer" src="" type="application/pdf"></iframe>
