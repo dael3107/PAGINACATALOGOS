@@ -95,6 +95,36 @@
             margin-bottom: 2rem;
             text-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
         }
+
+        .product-card.soldout::before {
+            content: "AGOTADO";
+            background: #ff3b30;
+            box-shadow: 0 0 10px rgba(255, 59, 48, 0.5);
+        }
+
+        .soldout-label {
+            font-size: 1.5rem;
+            color: #ff3b30;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px rgba(255, 59, 48, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid rgba(255, 59, 48, 0.3);
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            background: rgba(255, 59, 48, 0.1);
+        }
+
+        .btn-premium-disabled {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: rgba(255, 255, 255, 0.3) !important;
+            cursor: not-allowed !important;
+            box-shadow: none !important;
+            transform: none !important;
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -113,7 +143,7 @@
         <!-- ============================================== -->
         <!-- PRODUCTO 1 (Original)                         -->
         <!-- ============================================== -->
-        <article class="glass-panel product-card">
+        <article class="glass-panel product-card soldout">
             <div class="card-img-container">
                 <!-- EDITAR IMAGEN AQUI: Cambia "Helado 5 lt.png" por tu archivo -->
                 <img src="img/productos/Helado 5 lt.png" alt="Envase de Helado 5LT">
@@ -121,15 +151,14 @@
             <!-- EDITAR NOMBRE AQUI -->
             <h3 class="product-name">Envase de Helado con Tapa 5LT</h3>
 
-            <!-- EDITAR PRECIO AQUI -->
-            <div class="product-price">
-                S/ 350.00
+            <!-- ETIQUETA AGOTADO (Precio ocultado) -->
+            <div class="soldout-label">
+                Agotado
             </div>
 
-            <a href="https://wa.me/51998353898?text=Hola,%20me%20interesa%20el%20Envase%20de%20Helado%205LT"
-                target="_blank" class="btn-premium btn-premium-primary" style="width: 100%;">
-                <i class="fa-brands fa-whatsapp"></i> Comprar
-            </a>
+            <button class="btn-premium btn-premium-disabled" style="width: 100%;" disabled>
+                <i class="fa-solid fa-ban"></i> No disponible
+            </button>
         </article>
 
         <!-- ============================================== -->
